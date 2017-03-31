@@ -1,0 +1,31 @@
+package eecs.fa;
+
+import java.util.Map;
+
+public class M4
+{
+    /*
+    This method receives a non-empty map that shows the grades of a student in various courses
+    in various departments. It has department codes as keys and maps as values. Each value map
+    has courses in that department as keys and corresponding grades as values. For example:
+
+    {EECS={1001=C, 1012=A+, 1022=B}, MATH={1025=B, 1310=C, 1311=D-}, PHAS={1010=D, 2010=B}}
+
+    We see that this student took 3 courses in EECS, 3 in MATH, and 2 in PHAS.
+
+    The method returns a map whose keys are the various grades that the student obtained and
+    whose values are the number of courses in which the student obtained that grade. For the
+    above example, the method returns:
+
+    {A+=1, B=3, C=2, D=1, D-=1}
+
+    This is because the students obtained one A+, three B, two C, one D, and one D- in all
+    courses in all departments. Note that the returned map must be sorted on its keys.
+
+    */
+    public static Map<String,Integer> gradeCount(Map<String,Map<String,String>> map)
+    {
+        return null; // delete me!
+    }
+
+}
