@@ -1,0 +1,73 @@
+
+//package eecs.fa;
+
+public class M2
+{
+/*
+Receives a non-empty string s; extracts the computing courses; and returns the sum of
+their credit counts.
+.
+A computing course is recognized by the prefix EECS or the prefix CSE (in upper or lower
+case) followed by 4 digits, followed by one or more period, followed by the credit count
+which can be optionally bracketed. The credit count is a single digit. For example, here
+are a few valid computing courses: EECS1022.3, cse4413..[4], EECS2040....[6]
+
+If the received string does not contains any computing course, the method returns 0.
+
+Example:
+totalCredit("Course EECS1022..3 and cse1020.[4] with CSE3421 or CSE6215...8") = 15
+
+*/
+public static int totalCredit(String s)
+{
+	char [] temp = new char[10000];
+	int s1=0;
+	s=s.toLowerCase();
+	//System.out.println("s:"+s);
+	temp = s.toCharArray();
+	int num=0;
+	
+	//for(int i=0;i<s.length();i++){System.out.print(temp[i]);}
+	for(int i=0;i<s.length();i++){
+		if( temp[i]== 'e'&&temp[i+1] == 'e'&&temp[i+2]=='c'&&temp[i+3]=='s') 		
+				{
+			int j = i+3;
+			System.out.println("j:"+j);
+			//int num=0;
+			String a = "";
+			while(temp[j]!=' ') {
+				if(temp[j-1]=='.'||temp[j-1]=='[')
+				a = temp[j]+"";
+				System.out.println("a:"+a);
+				j++;
+			}
+			num = Integer.parseInt(a);
+			s1 = s1+num;
+		}
+
+		if((temp[i] == 'c'&&temp[i+1] == 's'&&temp[i+2]=='e')	) {
+			int j = i+2;
+			System.out.println("j:"+j);
+			
+			String a = "";
+			while(temp[j]!=' ') {
+				if(temp[j-1]=='['||temp[j-1]=='.')
+					System.out.println("temp"+temp[j]);
+				if(temp[j]>='0'&&temp[j]<='9')
+				a = temp[j]+"";
+				System.out.println("a:"+a);
+				j++;
+			}
+			num = Integer.parseInt(a);
+			s1 = s1+num;
+		}
+		
+	}
+	
+    return s1-1; 
+}
+
+public static void main(String[] args) {
+	System.out.println(totalCredit("Course EECS1022..3 and cse1020.[4] with CSE3421 or CSE6215...8 "));
+}
+}
